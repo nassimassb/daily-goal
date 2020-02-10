@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'Pages/ItemOne.dart';
-import 'package:daily_goal_app/Pages/ItemTwo.dart';
-import 'package:daily_goal_app/Pages/ItemThree.dart';
+import 'Pages/ItemTwo.dart';
+import 'Pages/ItemThree.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -26,34 +26,41 @@ class _HomeState extends State<Home> {
     return new Scaffold(
 
       appBar: AppBar(
-
-        title: Text("Daily goal"),
+        title: Image.asset('assets/dailygoal_logo.png', height: 40.0),
         backgroundColor: Colors.grey[850],
       ),
 
       body: pageOptions[_indexPage],
-      backgroundColor: Colors.white10,
+      backgroundColor: Colors.grey[900],
 
-      bottomNavigationBar: CurvedNavigationBar(
-        height: 50.0,
+      bottomNavigationBar: Container(
+        height: 55.0,
+        decoration:
+        new BoxDecoration(color: Colors.green),
+        child: CurvedNavigationBar(
+          height: 50.0,
+          index: 0,
+          items: <Widget>[
 
-        items: <Widget>[
-
-            Icon(Icons.add, color: Colors.white, size: 30.0,),
+            Icon(Icons.home, color: Colors.white, size: 30.0,),
             Icon(Icons.check, color: Colors.white, size: 30.0),
             Icon(Icons.group, color: Colors.white, size: 30.0)
           ],
 
-        color: Colors.grey[850],
-        buttonBackgroundColor: Colors.grey[800],
-        backgroundColor: Colors.green[800],
-        animationCurve: Curves.easeInOut,
-        animationDuration: Duration(milliseconds: 600),
+          color: Colors.grey[850],
+          buttonBackgroundColor: Colors.grey[800],
+          backgroundColor: Colors.green[800],
+          animationCurve: Curves.easeInOutCirc,
+          animationDuration: Duration(milliseconds: 300),
 
 
-        onTap: (int index){
-            _indexPage = index;
-        },
+          onTap: (int index){
+
+            setState(() {
+              _indexPage = index;
+            });
+          },
+        ),
       ),
     );
   }
