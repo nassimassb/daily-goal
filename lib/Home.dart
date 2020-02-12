@@ -26,8 +26,16 @@ class _HomeState extends State<Home> {
     return new Scaffold(
 
       appBar: AppBar(
-        title: Image.asset('assets/dailygoal_logo.png', height: 40.0),
+        leading: Container(
+          child: IconButton(
+
+            icon: Image.asset('assets/images/dailygoal_logo.png'),
+            iconSize: 40.0,
+          ),
+        ),
+        title: Text("Daily goal",style: TextStyle(fontFamily: 'Feelin Sweet', fontSize: 30.0)),
         backgroundColor: Colors.grey[850],
+
       ),
 
       body: pageOptions[_indexPage],

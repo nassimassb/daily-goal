@@ -30,6 +30,12 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  flutter_launcher_icons: "^0.7.4"
+
+flutter_icons:
+  image_path: "assets/images/dailygoal_logo.png"
+  android: true
+  ios: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -38,10 +44,20 @@ dev_dependencies:
 flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
+    - assets/images/
+
+  fonts:
+    - family: Bubble gum
+      fonts:
+        - asset: assets/fonts/Bubblegum.ttf
+
+    - family: Feelin sweet
+      fonts:
+          - asset: assets/fonts/Feelin Sweet.ttf
+            weight: 700
+          - asset: assets/fonts/Feelin Sweet Extrude.ttf
+            weight: 800
+
   uses-material-design: true
 
 
