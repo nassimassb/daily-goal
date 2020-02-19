@@ -104,7 +104,18 @@ class _ItemOneState extends State<ItemOne> {
                                           ],
                                         ),
                                       ),
-                                      SizedBox(height: 100.0,),
+                                      Container(
+                                        margin: EdgeInsets.only(left: 20.0, right: 20.0),
+                                        child: DataTable(
+                                          columns: [
+                                            DataColumn(label: Text('Nom')),
+                                          ],
+                                          rows: [
+
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(height: 20.0,),
                                       FloatingActionButton(
                                         child: Icon(Icons.check),
                                         backgroundColor: Colors.green[800],
