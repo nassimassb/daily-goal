@@ -51,7 +51,7 @@ class _HomeState extends State<Home> {
           items: <Widget>[
 
             Icon(Icons.home, color: Colors.white, size: 30.0,),
-            Icon(Icons.check, color: Colors.white, size: 30.0),
+            Icon(Icons.add_circle, color: Colors.white, size: 30.0),
             Icon(Icons.group, color: Colors.white, size: 30.0)
           ],
 

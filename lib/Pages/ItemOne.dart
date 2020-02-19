@@ -54,27 +54,67 @@ class _ItemOneState extends State<ItemOne> {
                       child: ListView.builder(
                         itemCount: snapshot.data.length,
                         itemBuilder: (context, index){
+
+                          var ourdata = snapshot.data[index];
+
                           return Container(
-                              child: Column(
-                                children: <Widget>[
+                            width: MediaQuery.of(context).size.width,
+                            height: 250.0,
+                              child: Card(
+                                elevation: 10.0,
+                                margin: EdgeInsets.only(top: 10.0, bottom: 20.0, left: 20.0, right: 20.0),
+                                color: Colors.white24,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                child: Container(
+                                  child: Column(
+                                    children: <Widget>[
+                                      Container(
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: <Widget>[
+                                            Container(
+                                              child: Row(
+                                                children: <Widget>[
+                                                  Container(
+                                                    margin: EdgeInsets.all(10.0),
+                                                    child: CircleAvatar(
+                                                      child: Text(ourdata.data["objectifs"][0]),
+                                                      backgroundColor: Colors.green[800],
+                                                      foregroundColor: Colors.white,
+                                                    ),
+                                                  ),
+                                                  SizedBox(width: 5.0,),
+                                                  Container(
 
-                                  Card(
-                                    elevation: 10.0,
-                                    margin: EdgeInsets.only(top: 10.0, bottom: 20.0, left: 20.0, right: 20.0),
-                                    color: Colors.grey[600],
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width,
-                                      height: 250.0,
-                                      child: Column(
-                                        children: <Widget>[
+                                                    child: Text(snapshot.data[index].data["objectifs"],style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),)
+                                                    ,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
 
-                                          Text(snapshot.data[index].data["objectifs"],style: TextStyle(fontWeight: FontWeight.bold),)
-                                        ],
+                                            Container(
+                                              child: IconButton(
+                                                icon: Icon(Icons.more_vert,size: 25.0,),
+                                                tooltip: 'Options',
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
+                                      SizedBox(height: 100.0,),
+                                      FloatingActionButton(
+                                        child: Icon(Icons.check),
+                                        backgroundColor: Colors.green[800],
+                                        elevation: 10.0,
+                                        tooltip: 'Cliquez pour valider votre objectif journalier',
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              )
+                                ),
+                              ),
                           );
                         },
                       ),
