@@ -33,9 +33,7 @@ class _HomeState extends State<Home> {
             iconSize: 40.0,
           ),
         ),
-        title: Text("Daily goal",style: TextStyle(fontFamily: 'Feelin Sweet', fontSize: 30.0)),
-        backgroundColor: Colors.grey[850],
-
+        title: Text("Daily goal"),
       ),
 
       body: pageOptions[_indexPage],

@@ -26,7 +26,6 @@ class _ItemOneState extends State<ItemOne> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: Colors.grey[900],
       body: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
@@ -48,7 +47,7 @@ class _ItemOneState extends State<ItemOne> {
                     Container(
                       height: 20.0,
                       margin: const EdgeInsets.only(top: 20.0, bottom: 10.0),
-                      child: Text("Mes objectifs", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20.0)),
+                      child: Text("Mes objectifs", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0)),
                     ),
                     Expanded(
                       child: ListView.builder(
@@ -116,11 +115,17 @@ class _ItemOneState extends State<ItemOne> {
                                         ),
                                       ),
                                       SizedBox(height: 20.0,),
-                                      FloatingActionButton(
-                                        child: Icon(Icons.check),
-                                        backgroundColor: Colors.green[800],
-                                        elevation: 10.0,
-                                        tooltip: 'Cliquez pour valider votre objectif journalier',
+                                      Align(
+                                        alignment: Alignment(0, -3.0),
+                                        heightFactor: 1,
+
+                                        child: FloatingActionButton(
+                                          child: Icon(Icons.check),
+                                          backgroundColor: Colors.green[800],
+                                          foregroundColor: Colors.white,
+                                          elevation: 10.0,
+                                          tooltip: 'Cliquez pour valider votre objectif journalier',
+                                        ),
                                       ),
                                     ],
                                   ),
