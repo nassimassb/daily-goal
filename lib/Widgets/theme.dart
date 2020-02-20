@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 ThemeData basicLightTheme(){
   TextTheme _basicTextTheme(TextTheme base){
     return base.copyWith(
-      headline5: base.headline5.copyWith(
+      headline6: base.headline6.copyWith(
           fontFamily: 'Feelin sweet',
           fontSize: 30.0,
           color: Colors.red,
@@ -20,6 +20,12 @@ ThemeData basicLightTheme(){
     snackBarTheme: SnackBarThemeData(
       backgroundColor: Colors.grey[600],
       contentTextStyle: TextStyle(color: Colors.white),
+    ),
+    cardColor: Colors.white60,
+    appBarTheme: AppBarTheme(
+        textTheme: TextTheme(
+          headline6: TextStyle(fontFamily: 'Feelin Sweet', fontSize: 30.0,color: Colors.white),
+        )
     ),
   );
 }
@@ -44,6 +50,12 @@ ThemeData basicDarkTheme(){
     snackBarTheme: SnackBarThemeData(
       backgroundColor: Colors.grey[800],
       contentTextStyle: TextStyle(color: Colors.white),
+    ),
+    cardColor: Colors.white24,
+    appBarTheme: AppBarTheme(
+      textTheme: TextTheme(
+        headline6: TextStyle(fontFamily: 'Feelin Sweet', fontSize: 30.0,color: Colors.white),
+      )
     ),
   );
 }

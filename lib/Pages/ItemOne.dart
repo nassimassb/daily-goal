@@ -62,7 +62,6 @@ class _ItemOneState extends State<ItemOne> {
                               child: Card(
                                 elevation: 10.0,
                                 margin: EdgeInsets.only(top: 10.0, bottom: 20.0, left: 20.0, right: 20.0),
-                                color: Colors.white24,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),

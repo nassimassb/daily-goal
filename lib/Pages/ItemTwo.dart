@@ -69,6 +69,19 @@ class _ItemTwoState extends State<ItemTwo> {
               ),
 
               SizedBox(height: 24.0,),
+              TextFormField(
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  border: UnderlineInputBorder(),
+                  icon: Icon(Icons.calendar_today),
+                  filled: true,
+                  hintText: 'Exemple: 3 fois/jour',
+                  labelText: 'Fréquence journalière',
+                  fillColor: Colors.white24,
+                ),
+              ),
+
+              SizedBox(height: 24.0,),
               Container(
                 width: MediaQuery.of(context).size.width,
                 child: Row(
@@ -96,19 +109,6 @@ class _ItemTwoState extends State<ItemTwo> {
                       },
                     ),
                   ],
-                ),
-              ),
-
-              SizedBox(height: 24.0,),
-              TextFormField(
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  border: UnderlineInputBorder(),
-                  icon: Icon(Icons.calendar_today),
-                  filled: true,
-                  hintText: 'Exemple: 3 fois/jour',
-                  labelText: 'Fréquence journalière',
-                  fillColor: Colors.white24,
                 ),
               ),
 
