@@ -1,6 +1,8 @@
+import 'package:daily_goal_app/Pages/ItemThree.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
+import '../Pages/ItemThree.dart';
 
 class ItemOne extends StatefulWidget {
   @override
@@ -124,6 +126,9 @@ class _ItemOneState extends State<ItemOne> {
                                           foregroundColor: Colors.white,
                                           elevation: 10.0,
                                           tooltip: 'Cliquez pour valider votre objectif journalier',
+                                          onPressed: (){
+                                            //Navigator.of(context).push(new MaterialPageRoute(builder: (context) => ItemThree()));
+                                          },
                                         ),
                                       ),
                                     ],

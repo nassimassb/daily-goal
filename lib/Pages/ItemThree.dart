@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ItemThree extends StatefulWidget {
   @override
@@ -8,6 +9,13 @@ class ItemThree extends StatefulWidget {
 }
 
 class _ItemThreeState extends State<ItemThree> {
+
+  Future getHomePost() async {
+
+    var firestore = Firestore.instance;
+    QuerySnapshot snap = await firestore.collection("HomeData").getDocuments();
+    return snap.documents;
+  }
 
   static const listOfItems = <String>[
     'Sport',
@@ -40,8 +48,6 @@ class _ItemThreeState extends State<ItemThree> {
               ),
               SizedBox(height: 24.0,),
               TextFormField(
-
-                style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   border: UnderlineInputBorder(),
                   icon: Icon(Icons.person_add),
@@ -57,18 +63,37 @@ class _ItemThreeState extends State<ItemThree> {
               Container(
                 child: Text('Mes objectifs',),
               ),
-              Container(
-                width: 200.0,
-                child: DropdownButton(
-                  value: selectedVal,
-                  hint: Text('Choisissez votre objectif',),
-                  items: dropdownItems,
-                  onChanged: (String newValue){
-                    setState(() {
-                      selectedVal = newValue;
-                    });
-                  },
-                ),
+              StreamBuilder<QuerySnapshot>(
+                stream:
+                    Firestore.instance.collection("HomeData").snapshots(),
+                builder: (context, snapshot) {
+                  if(!snapshot.hasData){
+                    Text("Aucun objectif disponible");
+                  } else {
+                    List<DropdownMenuItem> homeDataItems = [];
+                    for(int i = 0; i < snapshot.data.documents.length;i++) {
+                      DocumentSnapshot snap = snapshot.data.documents[i];
+                      homeDataItems.add(DropdownMenuItem(
+                            child: Text(snap.data["objectifs"]),
+                            value: "${snap.data["objectifs"]}",
+                          ));
+                    }
+                    return Container(
+                      width: 210.0,
+                      child: DropdownButton(
+                        value: selectedVal,
+                        hint: Text('Choisissez votre objectif',),
+                        items: homeDataItems,
+                        isExpanded: false,
+                        onChanged: (newValue){
+                          setState(() {
+                            selectedVal = newValue;
+                          });
+                        },
+                      ),
+                    );
+                  }
+                }
               ),
             ],
           ),

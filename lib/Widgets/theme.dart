@@ -20,6 +20,7 @@ ThemeData basicLightTheme(){
     snackBarTheme: SnackBarThemeData(
       backgroundColor: Colors.grey[600],
       contentTextStyle: TextStyle(color: Colors.white),
+      actionTextColor: Colors.white,
     ),
     cardColor: Colors.white60,
     appBarTheme: AppBarTheme(
@@ -27,6 +28,17 @@ ThemeData basicLightTheme(){
           headline6: TextStyle(fontFamily: 'Feelin Sweet', fontSize: 30.0,color: Colors.white),
         )
     ),
+    tooltipTheme: TooltipThemeData(
+        showDuration: Duration(seconds: 3),
+        decoration: BoxDecoration(
+          color: Colors.grey[800],
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+        textStyle: TextStyle(color: Colors.white)
+    ),
+    iconTheme: IconThemeData(
+      color: Colors.grey[700],
+    )
   );
 }
 
@@ -50,6 +62,7 @@ ThemeData basicDarkTheme(){
     snackBarTheme: SnackBarThemeData(
       backgroundColor: Colors.grey[800],
       contentTextStyle: TextStyle(color: Colors.white),
+      actionTextColor: Colors.white,
     ),
     cardColor: Colors.white24,
     appBarTheme: AppBarTheme(
@@ -57,6 +70,19 @@ ThemeData basicDarkTheme(){
         headline6: TextStyle(fontFamily: 'Feelin Sweet', fontSize: 30.0,color: Colors.white),
       )
     ),
+    tooltipTheme: TooltipThemeData(
+      showDuration: Duration(seconds: 3),
+      decoration: BoxDecoration(
+        color: Colors.grey[800],
+        borderRadius: BorderRadius.circular(5.0),
+      ),
+      textStyle: TextStyle(color: Colors.white),
+    ),
+    iconTheme: IconThemeData(
+      color: Colors.white70,
+    ),
+    textSelectionColor: Colors.blue,
+    textSelectionHandleColor: Colors.blue,
   );
 }
 

@@ -26,18 +26,47 @@ class _HomeState extends State<Home> {
     return new Scaffold(
 
       appBar: AppBar(
-        leading: Container(
-          child: IconButton(
 
-            icon: Image.asset('assets/images/dailygoal_logo.png'),
-            iconSize: 40.0,
-          ),
+          title: Container(
+            margin: EdgeInsets.only(left: 30.0),
+            child: Row(
+              children: <Widget>[
+                IconButton(
+
+                  icon: Image.asset('assets/images/dailygoal_logo.png'),
+                  iconSize: 40.0,
+                ),
+                Text("Daily goal"),
+              ],
+            ),
+          )
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            ButtonBar(
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.arrow_back, color: Colors.white,),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  tooltip: 'Cliquez pour cacher ce menu',
+                )
+              ],
+            ),
+          ],
         ),
-        title: Text("Daily goal"),
       ),
 
-      body: pageOptions[_indexPage],
+      body: new GestureDetector(
+          onTap: () {
+            FocusScope.of(context).requestFocus(new FocusNode());
+          },
+          child: pageOptions[_indexPage]
+      ),
       backgroundColor: Colors.grey[900],
+      
 
       bottomNavigationBar: Container(
         height: 55.0,
@@ -60,8 +89,7 @@ class _HomeState extends State<Home> {
           animationDuration: Duration(milliseconds: 300),
 
 
-          onTap: (int index){
-
+          onTap: (int index) {
             setState(() {
               _indexPage = index;
             });
