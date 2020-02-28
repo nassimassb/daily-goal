@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class ItemTwo extends StatefulWidget {
   @override
@@ -76,6 +77,7 @@ class _ItemTwoState extends State<ItemTwo> {
                 SizedBox(height: 24.0,),
                 TextFormField(
                   keyboardType: TextInputType.number,
+                  inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
                   decoration: InputDecoration(
                     border: UnderlineInputBorder(),
                     icon: Icon(Icons.calendar_today),
@@ -119,7 +121,7 @@ class _ItemTwoState extends State<ItemTwo> {
                   ),
                 ),
 
-                SizedBox(height: 48.0,),
+               /* SizedBox(height: 48.0,),
                 Text('Fréquence hebdomadaire'),
                 Container(
                   child: DropdownButton(
@@ -133,7 +135,7 @@ class _ItemTwoState extends State<ItemTwo> {
                       });
                     },
                   ),
-                ),
+                ),*/
 
                 SizedBox(height: 48.0,),
                 Text('Premier jour de la semaine'),
@@ -149,6 +151,15 @@ class _ItemTwoState extends State<ItemTwo> {
                       });
                     },
                   ),
+                ),
+                SizedBox(height: 40.0,),
+                RaisedButton(
+                  child: Text('Créer mon objectif journalier',),
+                  color: Colors.green[800],
+                  textColor: Colors.white,
+                  onPressed: (){
+
+                  },
                 ),
               ],
             ),

@@ -15,7 +15,7 @@ ThemeData basicLightTheme(){
   return base.copyWith(
     textTheme: _basicTextTheme(base.textTheme),
     primaryColor: Colors.grey[850],
-    canvasColor: Colors.grey[700],
+      canvasColor: Colors.grey[700],
     scaffoldBackgroundColor: Colors.grey[400],
     snackBarTheme: SnackBarThemeData(
       backgroundColor: Colors.grey[600],
@@ -57,7 +57,7 @@ ThemeData basicDarkTheme(){
   return base.copyWith(
     textTheme: _basicTextTheme(base.textTheme),
     primaryColor: Colors.grey[850],
-    canvasColor: Colors.grey[700],
+    canvasColor: Colors.grey[800],
     scaffoldBackgroundColor: Colors.grey[900],
     snackBarTheme: SnackBarThemeData(
       backgroundColor: Colors.grey[800],
@@ -79,7 +79,7 @@ ThemeData basicDarkTheme(){
       textStyle: TextStyle(color: Colors.white),
     ),
     iconTheme: IconThemeData(
-      color: Colors.white70,
+      color: Colors.white,
     ),
     textSelectionColor: Colors.blue,
     textSelectionHandleColor: Colors.blue,

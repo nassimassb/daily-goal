@@ -41,21 +41,42 @@ class _HomeState extends State<Home> {
             ),
           )
       ),
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            ButtonBar(
-              children: <Widget>[
-                IconButton(
-                  icon: Icon(Icons.arrow_back, color: Colors.white,),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  tooltip: 'Cliquez pour cacher ce menu',
-                )
-              ],
-            ),
-          ],
+      drawer: SafeArea(
+        child: Drawer(
+          child: ListView(
+            children: <Widget>[
+              Container(
+                color: Colors.grey[850],
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: IconButton(
+                    icon: Icon(Icons.arrow_back, color: Colors.white,),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    tooltip: 'Cliquez pour cacher ce menu',
+                  ),
+                ),
+              ),
+              UserAccountsDrawerHeader(
+                accountName: Text("Nassim", style: TextStyle(fontSize: 20.0),),
+              ),
+              ListTile(
+                leading: Icon(Icons.person, color: Colors.white,),
+                title: Text('Mon compte', style: TextStyle(color: Colors.white),),
+                onTap: (){
+
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.settings, color: Colors.white,),
+                title: Text('Paramètres', style: TextStyle(color: Colors.white),),
+                onTap: (){
+
+                },
+              ),
+            ],
+          ),
         ),
       ),
 
