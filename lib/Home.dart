@@ -1,9 +1,11 @@
+import 'package:daily_goal_app/Pages/MyAccount.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'Pages/ItemOne.dart';
 import 'Pages/ItemTwo.dart';
 import 'Pages/ItemThree.dart';
+import 'Pages/Settings.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -65,14 +67,16 @@ class _HomeState extends State<Home> {
                 leading: Icon(Icons.person, color: Colors.white,),
                 title: Text('Mon compte', style: TextStyle(color: Colors.white),),
                 onTap: (){
-
+                  Navigator.of(context).pop();
+                  Navigator.of(context).push(new MaterialPageRoute(builder: (c)=>MyAccount()));
                 },
               ),
               ListTile(
                 leading: Icon(Icons.settings, color: Colors.white,),
                 title: Text('Paramètres', style: TextStyle(color: Colors.white),),
                 onTap: (){
-
+                  Navigator.of(context).pop();
+                  Navigator.of(context).push(new MaterialPageRoute(builder: (c)=>Settings()));
                 },
               ),
             ],

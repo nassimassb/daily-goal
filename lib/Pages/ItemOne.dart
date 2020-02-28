@@ -1,8 +1,6 @@
-import 'package:daily_goal_app/Pages/ItemThree.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
-import '../Pages/ItemThree.dart';
 
 class ItemOne extends StatefulWidget {
   @override
@@ -123,14 +121,19 @@ class _ItemOneState extends State<ItemOne> {
                                         alignment: Alignment(0, -3.0),
                                         heightFactor: 1,
 
-                                        child: FloatingActionButton(
+                                        child: RaisedButton(
                                           child: Icon(Icons.check),
-                                          backgroundColor: Colors.green[800],
-                                          foregroundColor: Colors.white,
+                                          shape: CircleBorder(),
+                                          padding: new EdgeInsets.all(15.0),
+                                          color: Colors.green[800],
+                                          textColor: Colors.white,
                                           elevation: 10.0,
-                                          tooltip: 'Cliquez pour valider votre objectif journalier',
+                                          //tooltip: 'Cliquez pour valider votre objectif journalier',
                                           onPressed: (){
-                                            //Navigator.of(context).push(new MaterialPageRoute(builder: (context) => ItemThree()));
+
+                                          },
+                                          onLongPress: (){
+
                                           },
                                         ),
                                       ),
