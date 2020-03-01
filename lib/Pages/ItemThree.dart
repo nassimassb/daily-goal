@@ -26,7 +26,7 @@ class _ItemThreeState extends State<ItemThree> {
   .map(
       (String value) => DropdownMenuItem<String>(
         value: value,
-        child: Text(value),
+        child: Text(value, style: TextStyle(color: Colors.white),),
       ),
   )
   .toList();
@@ -74,7 +74,7 @@ class _ItemThreeState extends State<ItemThree> {
                     for(int i = 0; i < snapshot.data.documents.length;i++) {
                       DocumentSnapshot snap = snapshot.data.documents[i];
                       homeDataItems.add(DropdownMenuItem(
-                            child: Text(snap.data["objectifs"]),
+                            child: Text(snap.data["objectifs"], style: TextStyle(color: Colors.white),),
                             value: "${snap.data["objectifs"]}",
                           ));
                     }

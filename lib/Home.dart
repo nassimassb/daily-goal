@@ -28,7 +28,7 @@ class _HomeState extends State<Home> {
     return new Scaffold(
 
       appBar: AppBar(
-
+        actions: [],
           title: Container(
             margin: EdgeInsets.only(left: 30.0),
             child: Row(
@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
                 Text("Daily goal"),
               ],
             ),
-          )
+          ),
       ),
       drawer: SafeArea(
         child: Drawer(
@@ -83,7 +83,6 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
-
       body: new GestureDetector(
           onTap: () {
             FocusScope.of(context).requestFocus(new FocusNode());
@@ -91,7 +90,6 @@ class _HomeState extends State<Home> {
           child: pageOptions[_indexPage]
       ),
       backgroundColor: Colors.grey[900],
-      
 
       bottomNavigationBar: Container(
         height: 55.0,

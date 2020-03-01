@@ -19,7 +19,7 @@ class _SettingsState extends State<Settings> {
               Align(
                 alignment: Alignment.topLeft,
                 child: IconButton(
-                  icon: Icon(Icons.arrow_back, color: Colors.white,),
+                  icon: Icon(Icons.arrow_back),
                   onPressed: () {
                     Navigator.of(context).push(new MaterialPageRoute(builder: (c)=>Home()));
                   },

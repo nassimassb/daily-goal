@@ -1,3 +1,4 @@
+import 'package:daily_goal_app/Widgets/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,7 +18,7 @@ class _ItemTwoState extends State<ItemTwo> {
   .map(
       (String value) => DropdownMenuItem<String>(
           value: value,
-          child: Text(value),
+          child: Text(value, style: TextStyle(color: Colors.white),),
       ),
   )
   .toList();

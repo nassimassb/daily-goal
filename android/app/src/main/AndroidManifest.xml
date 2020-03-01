@@ -7,7 +7,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="daily_goal_app"
+        android:label="Daily goal"
         android:icon="@mipmap/dailygoal_logo">
         <activity
             android:name=".MainActivity"
