@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:developer';
 
 class ItemThree extends StatefulWidget {
   @override
@@ -56,7 +56,9 @@ class _ItemThreeState extends State<ItemThree> {
                   labelText: 'Nom',
                   fillColor: Colors.white24,
                 ),
-                onSaved: (String friendName) {},
+                onSaved: (String friendName) {
+
+                },
               ),
 
               SizedBox(height: 48.0,),
@@ -88,6 +90,7 @@ class _ItemThreeState extends State<ItemThree> {
                         onChanged: (newValue){
                           setState(() {
                             selectedVal = newValue;
+                            log('value: ${selectedVal}');
                           });
                         },
                       ),

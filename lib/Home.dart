@@ -30,8 +30,10 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         actions: [],
           title: Container(
-            margin: EdgeInsets.only(left: 30.0),
+            margin: EdgeInsets.only(right: 70.0),
+            width: MediaQuery.of(context).size.width,
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 IconButton(
 

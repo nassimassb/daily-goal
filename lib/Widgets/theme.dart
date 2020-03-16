@@ -6,7 +6,6 @@ ThemeData basicLightTheme(){
       headline6: base.headline6.copyWith(
           fontFamily: 'Feelin sweet',
           fontSize: 30.0,
-          color: Colors.red,
       )
     );
   }

@@ -42,10 +42,6 @@ flutter_icons:
 flutter_launcher_name:
   name: "Daily goal"
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-# The following section is specific to Flutter.
 flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
@@ -58,10 +54,10 @@ flutter:
 
     - family: Feelin sweet
       fonts:
-          - asset: assets/fonts/Feelin Sweet.ttf
-            weight: 700
-          - asset: assets/fonts/Feelin Sweet Extrude.ttf
-            weight: 800
+        - asset: assets/fonts/Feelin Sweet.ttf
+          weight: 700
+        - asset: assets/fonts/Feelin Sweet Extrude.ttf
+          weight: 800
 
   uses-material-design: true
 

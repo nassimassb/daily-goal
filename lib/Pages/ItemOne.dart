@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
+import 'dart:developer';
 
 class ItemOne extends StatefulWidget {
   @override
@@ -55,10 +56,20 @@ class _ItemOneState extends State<ItemOne> {
                         itemBuilder: (context, index){
 
                           var ourdata = snapshot.data[index];
+                          log('snapLength : ${snapshot.data.length}');
 
-                          return Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: 250.0,
+                          if(snapshot.data.length < 1){
+                            return Container(
+                              height: MediaQuery.of(context).size.height/1.5,
+                              width: MediaQuery.of(context).size.width,
+                              child: Center(
+                                child: Text("Aucun objectif disponible", textAlign: TextAlign.center, style: TextStyle(fontSize: 20.0)),
+                              ),
+                            );
+                          }else{
+                            return Container(
+                              width: MediaQuery.of(context).size.width,
+//                              height: 250.0,
                               child: Card(
                                 elevation: 10.0,
                                 margin: EdgeInsets.only(top: 10.0, bottom: 20.0, left: 20.0, right: 20.0),
@@ -106,17 +117,41 @@ class _ItemOneState extends State<ItemOne> {
                                         ),
                                       ),
                                       Container(
-                                        margin: EdgeInsets.only(left: 20.0, right: 20.0),
-                                        child: DataTable(
-                                          columns: [
-                                            DataColumn(label: Text('Nom')),
-                                          ],
-                                          rows: [
+                                        margin: EdgeInsets.all(20.0),
+                                        child: Table(
+                                          border: TableBorder.all(color: Theme.of(context).textTheme.bodyText1.color),
+                                          children: [
+                                            TableRow( children: [
+                                              Column(children:[
+                                                Text('Nom')
+                                              ]),
+                                              Column(children:[
+                                                Text('L')
+                                              ]),
+                                              Column(children:[
+                                                Text('M')
+                                              ]),
+                                              Column(children:[
+                                                Text('M')
+                                              ]),
+                                              Column(children:[
+                                                Text('J')
+                                              ]),
+                                              Column(children:[
+                                                Text('V')
+                                              ]),
+                                              Column(children:[
+                                                Text('S')
+                                              ]),
+                                              Column(children:[
+                                                Text('D')
+                                              ]),
+                                            ]),
 
                                           ],
                                         ),
                                       ),
-                                      SizedBox(height: 20.0,),
+                                      SizedBox(height: 50.0,),
                                       Align(
                                         alignment: Alignment(0, -3.0),
                                         heightFactor: 1,
@@ -141,7 +176,9 @@ class _ItemOneState extends State<ItemOne> {
                                   ),
                                 ),
                               ),
-                          );
+                            );
+                          };
+
                         },
                       ),
                     ),

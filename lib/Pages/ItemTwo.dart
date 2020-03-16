@@ -1,7 +1,9 @@
-import 'package:daily_goal_app/Widgets/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import '../Home.dart';
+import 'dart:developer';
 
 class ItemTwo extends StatefulWidget {
   @override
@@ -41,11 +43,20 @@ class _ItemTwoState extends State<ItemTwo> {
   )
   .toList();
 
-  String selectedVal;
-  String selectedValWeek;
+  String dropValue1stDay,dropValueWeek,name,dailyFrequency;
+  TimeOfDay selectedTime;
   bool checkValue = false;
   final GlobalKey<FormState> _formKeyValue = new GlobalKey<FormState>();
 
+  createData(){
+    DocumentReference ds = Firestore.instance.collection("HomeData").document();
+
+    Map<String,dynamic> goals = {
+      "objectifs": name,
+    };
+    ds.setData(goals);
+    Navigator.of(context).push(new MaterialPageRoute(builder: (c)=>Home()));
+  }
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -73,6 +84,11 @@ class _ItemTwoState extends State<ItemTwo> {
                     labelText: 'Nom',
                     fillColor: Colors.white24,
                   ),
+                  onChanged: (value){
+                    setState(() {
+                      name = value;
+                    });
+                  },
                 ),
 
                 SizedBox(height: 24.0,),
@@ -87,6 +103,11 @@ class _ItemTwoState extends State<ItemTwo> {
                     labelText: 'Fréquence journalière',
                     fillColor: Colors.white24,
                   ),
+                  onChanged: (value){
+                    setState(() {
+                      dailyFrequency = value;
+                    });
+                  },
                 ),
 
                 SizedBox(height: 24.0,),
@@ -109,11 +130,15 @@ class _ItemTwoState extends State<ItemTwo> {
                             if(value != null){
                               Scaffold.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text('Votre objectif débutera à ${value.format(context)} et finira le lendemain à la même heure'),
+                                  content: Text('Votre objectif débutera chaque jour à ${value.format(context)} et finira le lendemain à la même heure'),
                                   duration: Duration(seconds: 10),
                                   action: SnackBarAction(label: 'OK',onPressed: (){}),
                                 ),
                               );
+                              setState(() {
+                                selectedTime = value;
+                              });
+                              log('Time: ${selectedTime.format(context)}');
                             }
                           });
                         },
@@ -142,13 +167,13 @@ class _ItemTwoState extends State<ItemTwo> {
                 Text('Premier jour de la semaine'),
                 Container(
                   child: DropdownButton(
-                    value: selectedVal,
+                    value: dropValue1stDay,
                     hint: Text('Selectionnez le premier jour de la semaine',),
                     items: dropdownItems,
                     isExpanded: false,
                     onChanged: (String newValue){
                       setState(() {
-                        selectedVal = newValue;
+                        dropValue1stDay = newValue;
                       });
                     },
                   ),
@@ -159,7 +184,7 @@ class _ItemTwoState extends State<ItemTwo> {
                   color: Colors.green[800],
                   textColor: Colors.white,
                   onPressed: (){
-
+                    createData();
                   },
                 ),
               ],
